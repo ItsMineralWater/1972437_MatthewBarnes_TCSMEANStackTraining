@@ -1,0 +1,23 @@
+#projectTable td, #projectTable th{
+    text-align: center;
+    padding:2px 5px;
+}
+
+body {
+    width:100%;
+    max-width: 1024px;
+    margin: auto;
+}
+
+#formDiv {
+    width:fit-content;
+    margin: auto;
+}
+
+table {
+    margin:auto;
+}
+
+p, h1 {
+    text-align: center;
+}

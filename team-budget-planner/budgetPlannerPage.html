@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="budgetPlannerScript.js">loadTable();</script>
+    <link rel="stylesheet" href="budgetPlannerStyle.css">
+</head>
+
+<body>
+    <h1>Team Budget Planner</h1>
+    <div id="formDiv">
+    <form action="">
+        <table>
+            <tr>
+                <td><label>Total Budget</label></td>
+                <td><input type="number" id="budget" /></td>
+            </tr>
+            <tr>
+                <td><label>Project</label></td>
+                <td><input type="text" id="project" /></td>
+            </tr>
+            <tr>
+                <td><label>Cost</label></td>
+                <td><input type="number" id="cost"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Add Project!" onclick="onFormSubmit()"></td>
+                <td><input type="button" value="Update Budget!" onclick="onBudgetPress()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Retrieve Data!" onclick="loadTable()"></td>
+                <td><input type="button" value="Store Data!" onclick="storeTable()"></td>
+            </tr>
+        </table>
+    </form>
+    </div>
+    <hr />
+    <table id="projectTable" rules="all">
+        <thead>
+            <tr>
+                <th>Project</th>
+                <th>Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <hr />
+    <p>Budget: <span id="dispBudget"></span></p>
+    <p>Remaining money: <span id="remBudget"></span></p>
+</body>
+
+</html>
