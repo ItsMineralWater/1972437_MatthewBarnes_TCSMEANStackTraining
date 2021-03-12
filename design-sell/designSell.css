@@ -1,0 +1,32 @@
+div.articleContainer {
+    width: 100%;
+    max-width: 1024px;
+    background-color: beige;
+    margin:auto;
+}
+
+p.articlePara {
+    font-size: 16pt;
+    color: royalblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: justify;
+}
+
+div.imageContainer {
+    width: 80%;
+    margin:auto;
+    border:black 1px solid;
+    text-align: center;
+}
+
+img.articleImage {
+    width: 100%;
+    margin-bottom: 0px;
+    background-color: slategray;
+}
+
+span.caption {
+    background-color: grey;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 10;
+}
