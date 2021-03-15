@@ -1,15 +1,9 @@
 var empObj = [];
 
-function resetTable() {
-    var newt = document.createElement('tbody');
-    var oldt = document.getElementById("projectTable").getElementsByTagName("tbody")[0];
-    oldt = oldt.parentNode.replaceChild(newt, oldt);
-}
-
+//-----------------------------------------TABLE PAGE FUNCTIONS-----------------------------------------
 function loadTable() {
     empObj = JSON.parse(localStorage.getItem("tableData"));
     
-    resetTable();
     for(x in empObj) {
         insertNewProject(empObj[x]);
     }
@@ -17,6 +11,12 @@ function loadTable() {
 
 function storeTable() {
     localStorage.setItem("tableData", JSON.stringify(empObj));
+}
+
+function resetTable() {
+    var newt = document.createElement('tbody');
+    var oldt = document.getElementById("projectTable").getElementsByTagName("tbody")[0];
+    oldt = oldt.parentNode.replaceChild(newt, oldt);
 }
 
 function updateBudget() {
@@ -28,12 +28,7 @@ function updateBudget() {
     document.getElementById("dispBudget").innerText = "$" + budget;
 }
 
-function resetForm() {
-    document.getElementById("project").value="";
-    document.getElementById("cost").value="";
-    document.getElementById("client").value="";
-}
-
+//-----------------------------------------FORM DATA FUNCTIONS-----------------------------------------
 function getFormData() {
     var project = {};
 
@@ -66,6 +61,13 @@ function insertNewProject(project) {
     newRow.insertCell(2).innerHTML = "$" + project.cost;
 }
 
+function resetForm() {
+    document.getElementById("project").value="";
+    document.getElementById("cost").value="";
+    document.getElementById("client").value="";
+}
+
+//-----------------------------------------ONCLICK AND ON PAGE LOAD-----------------------------------------
 function onAddSubmit() {
     var project = getFormData();
     if (project !== null) {
@@ -79,7 +81,13 @@ function onClearSubmit() {
     resetForm();
 }
 
+function onResetSubmit() {
+    empObj = [];
+    storeTable();
+}
+
 function loadFinancePage() {
+    resetTable();
     loadTable();
     updateBudget();
 }

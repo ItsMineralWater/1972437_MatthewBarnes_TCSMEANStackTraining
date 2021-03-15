@@ -36,3 +36,9 @@ nav ul {
     width: fit-content;
     margin: auto;
 }
+
+table {
+    table-layout: fixed;
+    width: 310px;
+    border: 3px black solid;
+}
