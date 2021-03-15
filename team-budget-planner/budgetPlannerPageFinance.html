@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Budget Planner</title>
-    <script src="budgetPlannerScript.js">loadTable();</script>
+    <script src="budgetPlannerScript.js"></script>
     <link rel="stylesheet" href="budgetPlannerStyle.css">
+    <title>Finance Team</title>
 </head>
 
 <body>
-    <h1>Team Budget Planner</h1>
+    <h1>Projects and Budget</h1>
     <nav>
         <ul>
             <li><a href="budgetPlannerPage.html">Home</a></li>
@@ -19,7 +19,20 @@
             <li><a href="budgetPlannerPageFinance.html">Finance Team</a></li>
         </ul>
     </nav>
-    <!--TODO make nav bar-->
+    <table id="projectTable" rules="all">
+        <thead>
+            <tr>
+                <th>Client</th>
+                <th>Project</th>
+                <th>Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <hr />
+    <p>Total Budget: <span id="dispBudget"></span></p>
+    <script type="text/JavaScript">loadFinancePage();</script>
 </body>
 
 </html>

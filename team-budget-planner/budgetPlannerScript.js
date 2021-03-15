@@ -1,34 +1,59 @@
 var empObj = [];
-var budget = null;
-var remaining = null;
+
+function resetTable() {
+    var newt = document.createElement('tbody');
+    var oldt = document.getElementById("projectTable").getElementsByTagName("tbody")[0];
+    oldt = oldt.parentNode.replaceChild(newt, oldt);
+}
 
 function loadTable() {
-    empObj = JSON.parse(sessionStorage.getItem("tableData"));
+    empObj = JSON.parse(localStorage.getItem("tableData"));
     
+    resetTable();
     for(x in empObj) {
         insertNewProject(empObj[x]);
     }
 }
 
 function storeTable() {
-    sessionStorage.setItem("tableData", JSON.stringify(empObj));
+    localStorage.setItem("tableData", JSON.stringify(empObj));
+}
+
+function updateBudget() {
+    var budget = 0;
+    for(x in empObj) {
+        budget += empObj[x].cost;
+    }
+
+    document.getElementById("dispBudget").innerText = "$" + budget;
 }
 
 function resetForm() {
     document.getElementById("project").value="";
     document.getElementById("cost").value="";
-    document.getElementById("budget").value="";
+    document.getElementById("client").value="";
 }
 
 function getFormData() {
     var project = {};
+
     project.name = document.getElementById("project").value;
-    if (project.name == "") {
-        project.name = "Unknown";
+    for (x in empObj) {
+        if (empObj[x].name == project.name) {
+            alert("Duplicate Project Name!");
+            return null;
+        }
     }
+    if (project.name == "") {
+        project.name = "Not Provided";
+    }
+
+    project.client = document.getElementById("client").value;
+
     var cost = document.getElementById("cost").value;
     cost = parseFloat(cost);
     project.cost = cost;
+
     return project;
 }
 
@@ -36,33 +61,25 @@ function insertNewProject(project) {
     var table = document.getElementById("projectTable");
     var body = table.getElementsByTagName("tbody")[0];
     var newRow = body.insertRow(body.length);
-    newRow.insertCell(0).innerHTML = project.name;
-    newRow.insertCell(1).innerHTML = project.cost;
+    newRow.insertCell(0).innerHTML = project.client;
+    newRow.insertCell(1).innerHTML = project.name;
+    newRow.insertCell(2).innerHTML = "$" + project.cost;
 }
 
-function updateBudget() {
-    remaining = budget;
-    for(x in empObj) {
-        remaining -= empObj[x].cost;
-    }
-
-    document.getElementById("dispBudget").innerText = "$" + budget;
-    document.getElementById("remBudget").innerText = "$" + remaining;
-}
-
-function onFormSubmit() {
+function onAddSubmit() {
     var project = getFormData();
-    insertNewProject(project);
-    empObj.push(project);
-    updateBudget();
+    if (project !== null) {
+        empObj.push(project);
+    }
+    storeTable();
     resetForm();
 }
 
-function onBudgetPress() {
-    budget = parseInt(document.getElementById("budget").value);
-    if (budget == NaN) {
-        budget = 0;
-    }
-    updateBudget();
+function onClearSubmit() {
     resetForm();
+}
+
+function loadFinancePage() {
+    loadTable();
+    updateBudget();
 }

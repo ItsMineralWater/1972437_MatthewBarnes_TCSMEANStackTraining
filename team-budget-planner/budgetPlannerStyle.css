@@ -9,15 +9,30 @@ body {
     margin: auto;
 }
 
-#formDiv {
-    width:fit-content;
-    margin: auto;
-}
-
 table {
     margin:auto;
+    text-align: center;
 }
 
-p, h1 {
+p, h1, nav {
     text-align: center;
+}
+
+nav li {
+    list-style-type: none;
+    display: inline-block;
+    border: 1px black solid;
+    padding: 2px;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav ul {
+    padding-left: 0px;
+    padding-bottom: 10px;
+    box-align: center;
+    width: fit-content;
+    margin: auto;
 }

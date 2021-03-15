@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="budgetPlannerScript.js">loadTable();</script>
+    <link rel="stylesheet" href="budgetPlannerStyle.css">
+    <title>Project Managers</title>
+</head>
+
+<body>
+    <h1>Add Project</h1>
+    <nav>
+        <ul>
+            <li><a href="budgetPlannerPage.html">Home</a></li>
+            <li><a href="budgetPlannerPageProject.html">Project Managers</a></li>
+            <li><a href="budgetPlannerPageFinance.html">Finance Team</a></li>
+        </ul>
+    </nav>
+    <form action="">
+        <table>
+            <tr>
+                <td><label>Client Name</label></td>
+                <td><input type="text" id="client" /></td>
+            </tr>
+            <tr>
+                <td><label>Project Name</label></td>
+                <td><input type="text" id="project" /></td>
+            </tr>
+            <tr>
+                <td><label>Cost</label></td>
+                <td><input type="number" id="cost"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Add" onclick="onAddSubmit()"></td>
+                <td><input type="button" value="Clear" onclick="onClearSubmit()"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
