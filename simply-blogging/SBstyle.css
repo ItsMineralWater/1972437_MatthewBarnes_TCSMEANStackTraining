@@ -1,0 +1,55 @@
+
+/*-----------------GENERAL-----------------*/
+h1 {
+    text-align: center;
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 40pt;
+}
+
+h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24pt;
+}
+
+#footer {
+    width: 100%;
+    height: 250px;
+}
+
+body {
+    background-image: url("https://i.pinimg.com/originals/2c/c1/3e/2cc13e6422218aa521474b36346b85f9.jpg");
+}
+
+div.container {
+    background-color: beige;
+}
+
+.nav-link {
+    background-color: white;
+    margin: 2px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: #ced4da;
+    border-style: solid;
+}
+
+/*-----------------POSTS-----------------*/
+div.postDiv {
+    width: 90%;
+    margin: auto;
+}
+
+div.imageDiv {
+    width:fit-content;
+    text-align: center;
+}
+
+img {
+    display: inline;
+    max-width: 50%;
+    max-height: 400px;
+}
+
+.postDiv p {
+    white-space: pre-wrap;
+}
