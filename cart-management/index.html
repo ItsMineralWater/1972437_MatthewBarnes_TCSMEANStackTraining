@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Electronics Store | Shop</title>
+</head>
+
+<body>
+    <div class="container justify-content-center">
+        <div class="row">
+            <h1>Shop Here!</h1>
+        </div>
+        <div class="row">
+            <div class="col">
+                Cart size: <span id="cartSizeDisplay"></span>
+            </div>
+            <div class="col" style="text-align: right;">
+                <a href="checkout.html">Checkout</a>
+            </div>
+        </div>
+        <div id="productTable">
+            <div class="row" id="productRow1"></div>
+            <div class="row" id="productRow2"></div>
+        </div>
+    </div>
+
+    <script type="text/JavaScript">retrieveCart(); displayProducts();</script>
+</body>
+
+</html>

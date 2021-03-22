@@ -1,0 +1,12 @@
+h1 {
+    text-align: center;
+}
+th, td {
+    text-align: center;
+}
+
+.productCard {
+    margin: 10px;
+    border: 2px solid red;
+    text-align: center;
+}
