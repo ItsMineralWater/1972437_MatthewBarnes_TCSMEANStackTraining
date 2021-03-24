@@ -20,6 +20,10 @@ export class LoginLogic {
     return JSON.parse(localStorage.getItem("myUser") as string);
   }
 
+  public setUser(): void {
+    localStorage.setItem("myUser", JSON.stringify(this.user));
+  }
+
   public checkUser(username: string, password: string): boolean {
     if (this.user == null) {
       return false;
@@ -37,6 +41,21 @@ export class LoginLogic {
     if (username !== this.user.username) { return "Username is incorrect"; }
     if (password !== this.user.password) { return "Password is incorrect"; }
     return "This should not be reached";
+  }
+
+  public registerUser(username: string, password: string, firstName: string, lastName: string): boolean {
+    if (username == "" || password == "" || firstName == "" || lastName == "") {
+      return false;
+    }
+    if (this.user == null) {
+      this.user = new Login();
+    }
+    this.user.firstName = firstName;
+    this.user.lastName = lastName;
+    this.user.username = username;
+    this.user.password = password;
+    this.setUser();
+    return true;
   }
 }
 

@@ -11,6 +11,7 @@ import { LoginLogic } from '../app.component';
 export class RegisterComponent implements OnInit {
 
   msg: string = "";
+  logger: LoginLogic = new LoginLogic();
   registerFormRef = new FormGroup({
     user: new FormControl(),
     pass: new FormControl(),
@@ -21,6 +22,14 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  submitRegister() { }
+  submitRegister() {
+    let user1: string = this.registerFormRef.get("user")?.value;
+    let pass1: string = this.registerFormRef.get("pass")?.value;
+    let fname: string = this.registerFormRef.get("firstName")?.value;
+    let lname: string = this.registerFormRef.get("lastName")?.value;
+    if (this.logger.registerUser(user1, pass1, fname, lname)) {
+      this.router.navigate(["/login"]);
+    }
+  }
 
 }
