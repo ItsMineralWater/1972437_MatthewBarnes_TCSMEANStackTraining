@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginLogic } from '../app.component';
+import { LoginLogic } from '../loginlogic.service';
 
 @Component({
   selector: 'app-register',
@@ -11,14 +11,13 @@ import { LoginLogic } from '../app.component';
 export class RegisterComponent implements OnInit {
 
   msg: string = "";
-  logger: LoginLogic = new LoginLogic();
   registerFormRef = new FormGroup({
     user: new FormControl(),
     pass: new FormControl(),
     firstName: new FormControl(),
     lastName: new FormControl()
   });
-  constructor(private router: Router) { }
+  constructor(private router: Router, private logger: LoginLogic) { }
 
   ngOnInit(): void { }
 

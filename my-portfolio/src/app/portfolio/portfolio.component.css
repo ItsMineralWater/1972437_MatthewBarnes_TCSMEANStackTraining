@@ -1,3 +1,12 @@
 h1 {
     text-align: center;
 }
+.h4right {
+    text-align: right;
+    align-items: center;
+}
+
+h4 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}

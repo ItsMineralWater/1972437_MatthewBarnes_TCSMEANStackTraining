@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormsModule } from '@angular/forms';
-import { LoginLogic } from '../app.component';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginLogic } from '../loginlogic.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -9,28 +10,38 @@ import { LoginLogic } from '../app.component';
 })
 export class PortfolioComponent implements OnInit {
 
-  logger: LoginLogic = new LoginLogic();
-  firstName: string = this.logger.user.firstName;
-  lastName: string = this.logger.user.lastName;
   tableData: Array<{name:string, number:string}> = new Array();
   contactFormRef = new FormGroup({
     name: new FormControl(),
     number: new FormControl()
   });
-  constructor() { }
+
+  constructor(private router: Router, public logger: LoginLogic) { }
 
   ngOnInit(): void {
     this.tableData = JSON.parse(localStorage.getItem("contactTable") as string);
-  }
-
-  addContact() {
     if (this.tableData == null) {
       this.tableData = new Array();
     }
-    let name1: string = this.contactFormRef.get("name")?.value;
-    let number1: string = this.contactFormRef.get("number")?.value;
-    this.tableData.push({name: name1, number: number1});
+  }
+
+  addContactPress() {
+    let name = this.contactFormRef.get("name")?.value;
+    let number = this.contactFormRef.get("number")?.value;
+    if (name == null || number == null) {
+      return;
+    }
+    this.tableData.push({name, number});
     localStorage.setItem("contactTable", JSON.stringify(this.tableData))
   }
 
+  onLogoutPress() {
+    this.logger.logOut();
+    this.router.navigate(["/login"]);
+  }
+
+  resetTable() {
+    localStorage.removeItem("contactTable");
+    this.tableData = new Array();
+  }
 }

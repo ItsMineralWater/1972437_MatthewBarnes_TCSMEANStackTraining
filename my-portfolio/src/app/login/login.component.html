@@ -1,21 +1,26 @@
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <h1>Login Page</h1>
-        </div>
-        <div class="col">
-            <h2><a routerLink="/register" routerLinkActive="active">Sign Up</a></h2>
+    <div class="row justify-content-center">
+        <div class="col-5">
+
+            <div class="row">
+                <div class="col">
+                    <h1>Login Page</h1>
+                </div>
+                <div class="col">
+                    <h2><a routerLink="/register" routerLinkActive="active">Sign Up</a></h2>
+                </div>
+            </div>
+
+            <form [formGroup]="loginFormRef" (ngSubmit)="submitLogin()" class="form-group">
+                <label>Username</label>
+                <input type="text" formControlName="user" class="form-control" />
+                <label>Password</label>
+                <input type="password" formControlName="pass" class="form-control" />
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+                {{msg}}
+            </form>
+
         </div>
     </div>
-    
-    
-    <form [formGroup]="loginFormRef" (ngSubmit)="submitLogin()" class="form-group">
-        <label>Username</label>
-        <input type="text" formControlName="user" class="form-control"/>
-        <label>Password</label>
-        <input type="password" formControlName="pass" class="form-control"/>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <button type="reset" class="btn btn-secondary">Reset</button>
-        {{msg}}
-    </form>
 </div>
