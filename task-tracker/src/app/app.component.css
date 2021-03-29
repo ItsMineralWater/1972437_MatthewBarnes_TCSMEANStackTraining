@@ -1,0 +1,28 @@
+#header-area h1 {
+    text-align: center;
+    border-bottom: solid 3px grey;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+#form-area {
+    border-right: solid 3px grey;
+}
+
+.table-header {
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;
+    padding: 10px 0px 0px 0px;
+}
+
+.info {
+    text-align: center;
+}
+
+.task-row {
+    border: solid 1px grey;
+    margin: 10px;
+    padding: 10px 0px 10px 0px;
+    border-radius: 3px;
+}
