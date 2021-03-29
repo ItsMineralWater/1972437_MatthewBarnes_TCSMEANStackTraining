@@ -1,0 +1,82 @@
+[
+    {
+        "question": "Round the square root of 2 to 2 decimal places.",
+        "answer1": "1.41",
+        "answer2": "1.21",
+        "answer3": "1.42",
+        "answer4": "1.22",
+        "key": 1
+    },
+    {
+        "question": "What is the capital of Romania?",
+        "answer1": "Constanta",
+        "answer2": "Arad",
+        "answer3": "Bucharest",
+        "answer4": "Timisoara",
+        "key": 3
+    },
+    {
+        "question": "Which business is headquartered in the Seattle Area?",
+        "answer1": "R.E.I.",
+        "answer2": "Starbucks",
+        "answer3": "Amazon",
+        "answer4": "All of the above",
+        "key": 4
+    },
+    {
+        "question": "What is the symbol for potassium?",
+        "answer1": "P",
+        "answer2": "K",
+        "answer3": "Po",
+        "answer4": "Ko",
+        "key": 2
+    },
+    {
+        "question": "How many parts (including screws) does the average car have?",
+        "answer1": "10,000",
+        "answer2": "30,000",
+        "answer3": "50,000",
+        "answer4": "75,000",
+        "key": 2
+    },
+    {
+        "question": "What type of bean is used in red beans and rice?",
+        "answer1": "Pinto",
+        "answer2": "Kidney",
+        "answer3": "Garbanzo",
+        "answer4": "Adzuki",
+        "key": 2
+    },
+    {
+        "question": "How many taste buds does the average tongue have?",
+        "answer1": "5,000",
+        "answer2": "7,500",
+        "answer3": "10,000",
+        "answer4": "12,500",
+        "key": 3
+    },
+    {
+        "question": "What is Hulk's real name?",
+        "answer1": "Bruce Banner",
+        "answer2": "Clint Barton",
+        "answer3": "Kal-El",
+        "answer4": "Tony Stark",
+        "key": 1
+    },
+    {
+        "question": "Which country is smaller than Texas?",
+        "answer1": "Brazil",
+        "answer2": "Libya",
+        "answer3": "Russia",
+        "answer4": "Germany",
+        "key": 4
+    },
+    {
+        "question": "What is often eaten in Japan on Christmas?",
+        "answer1": "KFC",
+        "answer2": "Christmas ham",
+        "answer3": "Pumpkin pie",
+        "answer4": "McDonald's",
+        "key": 1
+    }
+]
