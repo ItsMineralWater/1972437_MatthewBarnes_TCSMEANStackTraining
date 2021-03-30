@@ -1,4 +1,9 @@
 <div class="container justify-content-center">
+
+    <div >
+        <h1>Test Application</h1>
+    </div>
+
     <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="form-group">
         <div class="row test-question" *ngFor="let x of questions">
             <div class="col-4 question">{{x.question}}</div>
@@ -24,8 +29,14 @@
             </div>
             <div class="modal-body">
                 Your score: {{scoreString}}. You {{testPassedString}} <br /> <br />
-                <div *ngFor="let i of questions">
-                    {{getQuestionResults(i)}}
+                <div *ngFor="let q of questions">
+                    <div>
+                        Question: {{q.question}}
+                    </div>
+                    <div [style.color]="getColor(q)">
+                        {{getQuestionResults(q)}}
+                    </div>
+                    <hr />
                 </div>
             </div>
             <div class="modal-footer justify-content-center">

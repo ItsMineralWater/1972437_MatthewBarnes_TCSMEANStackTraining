@@ -20,19 +20,15 @@ export class TestPageComponent implements OnInit {
   myAnswers: Array<number> = new Array();
 
   ngOnInit(): void {
-
     this.testSer.loadEmployeeDetails().subscribe(data => {
       this.questions = data;
       for (let i in this.questions) {
         this.myForm.addControl(this.questions[i].question, new FormControl())
       }
     });
-
-
   }
 
   onSubmit(values: object) {
-    console.log(Object.values(values));
     this.myAnswers = Object.values(values);
     this.checkAnswers(this.myAnswers);
     this.displayed = "block";
@@ -61,11 +57,36 @@ export class TestPageComponent implements OnInit {
     let i = this.questions.indexOf(q);
     if (this.myAnswers[i]) {
       if (this.myAnswers[i] == q.key) {
-        return `Question ${i+1}: correct.`
+        return `You answered correctly.`
       } else {
-        return `Question ${i+1}: incorrect.`
+        return `Your Answer: ${this.getAnswer(q, this.myAnswers[i])}, correct answer: ${this.getAnswer(q, q.key)}`
       }
-    } else { return `Question ${i+1}: not answered.`}
+    } else { return `Question ${i + 1}: not answered.` }
+  }
+
+  getAnswer(q: TestQuestion, i: number): string {
+    switch (i) {
+      case 1:
+        return q.answer1;
+      case 2:
+        return q.answer2;
+      case 3:
+        return q.answer3;
+      case 4:
+        return q.answer4;
+    }
+    return "";
+  }
+
+  getColor(q: TestQuestion): string {
+    let i = this.questions.indexOf(q);
+    if (this.myAnswers[i]) {
+      if (this.myAnswers[i] == q.key) {
+        return "green"
+      } else {
+        return "red"
+      }
+    } else { return "red" }
   }
 
 }

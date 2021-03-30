@@ -1,43 +1,80 @@
 <div class="container">
+
   <div class="row">
     <div id="header-area">
       <h1>Task Tracker</h1>
     </div>
   </div>
+
   <div class="row">
 
     <div class="col col-4" id="form-area">
-      <form (ngSubmit)="addTodo(formRef.value)" #formRef="ngForm" class="form-group">
-        <label for="empId">ID</label>
-        <input type="text" name="empId" class="form-control" ngModel /><br />
+      <form (ngSubmit)="addTodo(formRef.value)" #formRef="ngForm">
+        
+        <table>
+          <tr>
+            <td>
+              <mat-form-field appearance="fill">
+                <mat-label for="empId">ID</mat-label>
+                <input matInput name="empId" ngModel required/>
+              </mat-form-field>
+            </td>
 
-        <label for="name">Name</label>
-        <input type="text" name="name" class="form-control" ngModel /><br />
+            <td>
+              <mat-form-field appearance="fill">
+                <mat-label for="name">Name</mat-label>
+                <input matInput name="name" ngModel required/>
+              </mat-form-field>
+            </td>
+          </tr>
 
-        <label for="name">Task</label>
-        <textarea name="task" class="form-control" ngModel></textarea><br />
+          <tr>
+            <td colspan="2">
+              <mat-form-field style="width: 100%" appearance="fill">
+                <mat-label for="name">Task</mat-label>
+                <textarea matInput name="task" ngModel required></textarea>
+              </mat-form-field>
+            </td>
+          </tr>
 
-        <label for="deadline">Deadline</label>
-        <input type="date" name="deadline" class="form-control" ngModel /><br />
 
-        <input type="submit" value="submit" class="btn btn-primary" />
-        <input type="reset" value="reset" class="btn btn-secondary" /><br />
+          <tr>
+            <td>
+              <mat-form-field appearance="fill">
+                <mat-label for="deadline">Deadline</mat-label>
+                <input matInput type="date" name="deadline" ngModel required/>
+              </mat-form-field><br />
+            </td>
+          </tr>
+        </table>
+
+        <button type="submit" mat-raised-button color="primary" [disabled]="!formRef.valid">Submit</button>
+        <button type="reset" mat-raised-button color="accent">Reset</button>
+
       </form>
+
     </div>
 
     <div class="col-8" id="todo-area">
-      <div class="row table-header">
-        <div class="col-2">ID</div>
-        <div class="col-3">Name</div>
-        <div class="col-4">Task</div>
-        <div class="col-2">Deadline</div>
-      </div>
-      <div class="row task-row" *ngFor="let t of tasks">
-        <div class="col-2 info">{{t.empId}}</div>
-        <div class="col-3 info">{{t.name}}</div>
-        <div class="col-4">{{t.task}}</div>
-        <div class="col-2 info">{{t.deadline}}</div>
-      </div>
+      <mat-card>
+        <mat-card-title>
+          <div class="row">
+            <div class="col-2 info">ID</div>
+            <div class="col-3 info">Name</div>
+            <div class="col-5 info">Task</div>
+            <div class="col-2 info">Deadline</div>
+          </div>
+        </mat-card-title>
+        <mat-card-content>
+          <div class="row" *ngFor="let t of tasks">
+            <div class="col-2 info">{{t.empId}}</div>
+            <div class="col-3 info">{{t.name}}</div>
+            <div class="col-5">{{t.task}}</div>
+            <div class="col-2 info">{{t.deadline}}</div>
+            <mat-divider></mat-divider>
+          </div>
+        </mat-card-content>
+      </mat-card>
     </div>
 
   </div>
