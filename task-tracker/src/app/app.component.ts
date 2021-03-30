@@ -8,17 +8,11 @@ import { TodoService } from './todo.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'task-tracker';
 
   constructor(public todoSer: TodoService) { }
   tasks: Array<Todo> = new Array();
-
-  ngOnInit() {
-    this.todoSer.loadTasks().subscribe(data => {
-      this.tasks = data;
-    });
-  }
 
   formRef = new FormGroup({
     empId: new FormControl(),
@@ -27,8 +21,14 @@ export class AppComponent implements OnInit{
     deadline: new FormControl()
   })
 
-  addTodo(formValue: object) {
-    console.log(formValue);
+  ngOnInit() {
+    this.todoSer.loadTasks().subscribe(data => {
+      this.tasks = data;
+    });
+  }
+
+  addTodo(formValue: Todo) {
     this.todoSer.storeTask(formValue);
+    this.tasks.push(formValue);
   }
 }
