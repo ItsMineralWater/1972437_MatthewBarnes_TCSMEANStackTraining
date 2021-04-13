@@ -21,6 +21,14 @@
             }
             document.getElementById("myForm").reset();
         }
+
+        socket.on("write message", (msg) => {
+            console.log(msg);
+            const chatul = document.getElementById("chat-area");
+            let chatli = document.createElement("li");
+            chatli.textContent = `${msg.name}: ${msg.message}`;
+            chatul.appendChild(chatli);
+        })
     </script>
     <title>Chatting With Socket.io</title>
 </head>
@@ -43,6 +51,12 @@
             <button type="submit" class="btn btn-primary" onclick="mysubmit()">Submit</button>
             <button type="reset" class="btn btn-secondary">Reset</button>
         </form>
+
+        <div class="container border">
+            <ul id="chat-area">
+
+            </ul>
+        </div>
     </div>
 </body>
 

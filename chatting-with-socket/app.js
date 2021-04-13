@@ -12,6 +12,7 @@ io.on("connection", (socket) => {
 
     socket.on("chat message", (msg) => {
         console.log(`Message from ${msg.name}: ${msg.message}`);
+        io.emit("write message", msg)
     })
 })
 
